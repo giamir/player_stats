@@ -19,10 +19,10 @@
     "jquery": "^2.2.0",
     "bootstrap": "^3.3.6",
     "angular": "^1.4.9",
-    "angular-route": "^1.4.9",
     "angular-mocks": "^1.4.9",
     "angular-chart.js": "^0.9.0",
-    "Chart.js": "^1.0.2"
+    "Chart.js": "^1.0.2",
+    "angular-route": "^1.5.1"
   },
   "resolutions": {
     "angular": "^1.4.9"

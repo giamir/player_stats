@@ -3,6 +3,10 @@ module.exports = function(config) {
     basePath: '../../',
     frameworks: ['jasmine'],
     files: [
+      'public/libs/Chart.js/Chart.min.js',
+      'public/libs/angular/angular.min.js',
+      'public/libs/angular-chart.js/dist/angular-chart.js',
+      'public/libs/angular-mocks/angular-mocks.js',
       'public/js/**/*.js',
       'test/**/*.spec.js'
     ],
