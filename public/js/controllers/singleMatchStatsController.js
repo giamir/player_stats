@@ -2,30 +2,37 @@ playerStats.controller('SingleMatchStats',
 ['Resource', 'RefineData',
 function(Resource, RefineData) {
   var self = this;
-  self.graphOptions = { pointDot : false, showTooltips: false }
 
-  self.getGlobalData = function(matchKey) {
+  self.init = function() {
+    self.currentStat = 'distance';
+    self.graphOptions = { pointDot : false, showTooltips: false }
     Resource.getPlayerData()
     .then(function(response) {
-      self.mws = Object.keys(response.data)
-      if(!matchKey) { matchKey = self.mws[0] }
-      self.matchKey = matchKey;
-      if(!self.stat) { self.stat = 'distance' }
-      self.singleMatchStats = RefineData.singleMatchStats(response.data[matchKey]);
-      self.getGraphData(self.stat);
+      self.matchWeekKeys = Object.keys(response.data);
+      self.currentMatchWeekKey = self.matchWeekKeys[0];
+      self.updateGlobalData(self.currentMatchWeekKey);
     });
-   };
+  };
 
-   self.getGraphData = function(stat) {
-     Resource.getPlayerData()
-     .then(function(response) {
-       self.stat = stat;
-       var data = RefineData.graphStats(response.data[self.matchKey], stat);
-       self.graphData = [RefineData.graphStats(response.data[self.matchKey], stat)];
-       self.graphLabels = [];
-       for(var i = 0; i < data.length; i++) { self.graphLabels.push(i * 5); }
-     });
-    };
+  self.updateGlobalData = function(matchWeekKey) {
+    Resource.getPlayerData()
+    .then(function(response) {
+      self.playerData = response.data
+      self.currentMatchWeekKey = matchWeekKey;
+      self.singleMatchStats = RefineData.singleMatchStats(
+        self.playerData[matchWeekKey]);
+      self.updateGraphData(self.currentStat);
+    });
+  };
 
-    self.getGlobalData();
+  self.updateGraphData = function(stat) {
+    self.currentStat = stat;
+    var graphArray = RefineData.graphStats(
+      self.playerData[self.currentMatchWeekKey], stat);
+    self.graphData = [graphArray];
+    self.graphLabels = [];
+    for(var i = 0; i < graphArray.length; i++) { self.graphLabels.push(i * 5); }
+  };
+
+  self.init();
 }]);

@@ -1,8 +1,8 @@
-<div class="single-match container" ng-controller="SingleMatchStats as ctrl">
+<div class="container" ng-controller="SingleMatchStats as ctrl">
   <div class="text-center text-uppercase">
     <ul class="pagination">
-      <li ng-repeat="mw in ctrl.mws" ng-class="{active: ctrl.matchKey==mw}">
-        <a ng-click="ctrl.getGlobalData(mw)">{{mw}}</a>
+      <li ng-repeat="mw in ctrl.matchWeekKeys" ng-class="{active: ctrl.currentMatchWeekKey==mw}">
+        <a ng-click="ctrl.updateGlobalData(mw)">{{mw}}</a>
       </li>
     </ul>
   </div>
@@ -14,8 +14,8 @@
   </section>
   <div class="text-center">
     <ul class="pagination">
-      <li ng-repeat="stat in ctrl.singleMatchStats" ng-class="{active: ctrl.stat==stat.alias}">
-        <a ng-click="ctrl.getGraphData(stat.alias)">{{stat.featureName}}</a>
+      <li ng-repeat="stat in ctrl.singleMatchStats" ng-class="{active: ctrl.currentStat==stat.alias}">
+        <a ng-click="ctrl.updateGraphData(stat.alias)">{{stat.featureName}}</a>
       </li>
     </ul>
   </div>
@@ -23,7 +23,7 @@
   <table class="match-stats table table-striped">
     <thead>
       <tr>
-        <th><span class="text-uppercase">{{ctrl.matchKey}}</span> Statistic</th>
+        <th><span class="text-uppercase">{{ctrl.currentMatchWeekKey}}</span> Statistic</th>
         <th></th>
       </tr>
     </thead>
