@@ -3,32 +3,28 @@ playerStats.factory('ElaborateData',[function() {
 
   elaborateData.seasonStatsObj = function(matchesStatsObj) {
     var matchesGlobalStatsObj = elaborateData.matchesGlobalStatsObj(matchesStatsObj);
-    var matchesStatsObjArray = elaborateData.matchStatsObjArray(matchesGlobalStatsObj);
-    var seasonStatsObj = matchesStatsObjArray;
+    var seasonStatsObj = elaborateData.reduceObjToArray(matchesGlobalStatsObj);
     angular.forEach(seasonStatsObj, function(array, stat) {
       seasonStatsObj[stat] = elaborateData._calculateAVG(array);
-    })
+    });
     return seasonStatsObj;
   };
 
   elaborateData.lastMatchGlobalStatsObj = function(matchesStatsObj) {
     var lastMatchStatsObj = matchesStatsObj[Object.keys(matchesStatsObj)[0]];
-    var lastMatchStatsObjArray = elaborateData.matchStatsObjArray(lastMatchStatsObj);
-    return elaborateData.matchGlobalStatsObj(lastMatchStatsObjArray);
+    return elaborateData.matchGlobalStatsObj(lastMatchStatsObj);
   };
 
   elaborateData.matchesGlobalStatsObj = function(matchesStatsObj) {
     var matchesGlobalStatsObj = {};
     angular.forEach(matchesStatsObj, function(matchStatsObj, match) {
-      var matchStatsObjArray = elaborateData.matchStatsObjArray(matchStatsObj);
-      var matchGlobalStatsObj = elaborateData.matchGlobalStatsObj(matchStatsObjArray);
-      matchesGlobalStatsObj[match] = matchGlobalStatsObj;
-    })
+      matchesGlobalStatsObj[match] = elaborateData.matchGlobalStatsObj(matchStatsObj);
+    });
     return matchesGlobalStatsObj;
   };
 
-  elaborateData.matchGlobalStatsObj = function(matchStatsObjArray) {
-    var matchGlobalStatsObj = matchStatsObjArray;
+  elaborateData.matchGlobalStatsObj = function(matchStatsObj) {
+    var matchGlobalStatsObj = elaborateData.reduceObjToArray(matchStatsObj);
     angular.forEach(matchGlobalStatsObj, function(array, stat) {
       switch(stat) {
         case 'avg_speed':
@@ -44,7 +40,7 @@ playerStats.factory('ElaborateData',[function() {
     return matchGlobalStatsObj;
   };
 
-  elaborateData.matchStatsObjArray = function(matchStatsObj) {
+  elaborateData.reduceObjToArray = function(matchStatsObj) {
     var matchStatsObjArray = {};
     angular.forEach(matchStatsObj, function(partialStatsObj) {
       angular.forEach(partialStatsObj, function(value, stat) {
@@ -56,7 +52,7 @@ playerStats.factory('ElaborateData',[function() {
   };
 
   elaborateData._calculateAVG = function(array) {
-    var sum = elaborateData._calculateSUM(array)
+    var sum = elaborateData._calculateSUM(array);
     return (sum / array.length);
   };
 
@@ -65,7 +61,7 @@ playerStats.factory('ElaborateData',[function() {
   };
 
   elaborateData._findMAX = function(array) {
-    return Math.max.apply(Math, array)
+    return Math.max.apply(Math, array);
   };
 
   return elaborateData;

@@ -17,8 +17,7 @@ playerStats.factory('RefineData',['ElaborateData', function(ElaborateData) {
   };
 
   refineData.singleMatchStats = function(matchStatsObj) {
-    var matchStatsObjArray = ElaborateData.matchStatsObjArray(matchStatsObj);
-    var matchGlobalStatsObj = ElaborateData.matchGlobalStatsObj(matchStatsObjArray);
+    var matchGlobalStatsObj = ElaborateData.matchGlobalStatsObj(matchStatsObj);
     var singleMatchStats = [];
     angular.forEach(matchGlobalStatsObj, function(value, feature) {
       var statistic = {};
@@ -31,7 +30,7 @@ playerStats.factory('RefineData',['ElaborateData', function(ElaborateData) {
   };
 
   refineData.graphStats = function(matchStatsObj, stat) {
-    return ElaborateData.matchStatsObjArray(matchStatsObj)[stat];
+    return ElaborateData.reduceObjToArray(matchStatsObj)[stat];
   };
 
   refineData._featureAliasToFeatureName = function(feature) {
