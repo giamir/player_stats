@@ -51,7 +51,7 @@ playerStats.factory('ElaborateData',[function() {
         if (!matchStatsObjArray[stat]) { matchStatsObjArray[stat] = []; }
         matchStatsObjArray[stat].push(+value);
       });
-    })
+    });
     return matchStatsObjArray;
   };
 

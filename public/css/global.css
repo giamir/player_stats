@@ -1,5 +1,5 @@
 body {
-  padding: 50px 0;
+  padding: 30px 0;
 }
 
 a {
@@ -8,4 +8,12 @@ a {
 
 i {
   font-size: 200px;
+}
+
+article {
+  padding: 20px 0;
+}
+
+.global-stats {
+  border-bottom: 1px solid #eee;
 }

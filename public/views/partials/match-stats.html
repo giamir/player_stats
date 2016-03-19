@@ -1,37 +1,31 @@
-<div class="container" ng-controller="SingleMatchStats as ctrl">
-  <div class="text-center text-uppercase">
-    <ul class="pagination">
-      <li ng-repeat="mw in ctrl.matchWeekKeys" ng-class="{active: ctrl.currentMatchWeekKey==mw}">
-        <a ng-click="ctrl.updateGlobalData(mw)">{{mw}}</a>
-      </li>
-    </ul>
-  </div>
-  <section class="graph">
-    <canvas id="line" class="chart chart-line" chart-data="ctrl.graphData"
-      chart-labels="ctrl.graphLabels" chart-options="ctrl.graphOptions" >
-    </canvas>
-    <p class="text-center text-uppercase"><small>minutes</small></p>
-  </section>
-  <div class="text-center">
-    <ul class="pagination">
-      <li ng-repeat="stat in ctrl.singleMatchStats" ng-class="{active: ctrl.currentStat==stat.alias}">
-        <a ng-click="ctrl.updateGraphData(stat.alias)">{{stat.featureName}}</a>
-      </li>
-    </ul>
-  </div>
+<nav class="pagination text-uppercase">
+  <li ng-repeat="mw in ctrl.matchWeekKeys" ng-class="{active: ctrl.currentMatchWeekKey==mw}">
+    <a ng-click="ctrl.updateGlobalData(mw)">{{mw}}</a>
+  </li>
+</nav>
 
-  <table class="match-stats table table-striped">
-    <thead>
-      <tr>
-        <th><span class="text-uppercase">{{ctrl.currentMatchWeekKey}}</span> Statistic</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="stat in ctrl.singleMatchStats">
-        <td>{{stat.featureName}}</td>
-        <td>{{stat.value}}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
+<table class="table table-striped text-left">
+  <thead>
+    <tr>
+      <th><span class="text-uppercase">{{ctrl.currentMatchWeekKey}}</span> statistics</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="stat in ctrl.singleMatchStats">
+      <td>{{stat.featureName}}</td>
+      <td>{{stat.value}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<figure>
+  <canvas class="chart chart-line" chart-data="ctrl.graphData"
+    chart-labels="ctrl.graphLabels" chart-options="ctrl.graphOptions">
+  </canvas>
+  <p class="text-uppercase"><small>minutes</small></p>
+  <nav class="pagination">
+    <li ng-repeat="stat in ctrl.singleMatchStats" ng-class="{active: ctrl.currentStat==stat.alias}">
+      <a ng-click="ctrl.updateGraphData(stat.alias)">{{stat.featureName}}</a>
+    </li>
+  </nav>
+</figure>
