@@ -1,28 +1,66 @@
-# Player Statistics
+# Player Statistics [![Build Status](https://travis-ci.org/giamir/player_stats.svg?branch=master)](https://travis-ci.org/giamir/player_stats) [![Coverage Status](https://coveralls.io/repos/github/giamir/player_stats/badge.svg?branch=master)](https://coveralls.io/github/giamir/player_stats?branch=master)
 
-## Instructions
 
-Attached is a JSON file of a player from this season's Premier League that we collect using our optical tracking system TRACAB. Included are 4 matches (match weeks 3-6) with each match split up into 5 minute segments of stats that the player has recorded during the game.
+## Task
 
-For the purpose of this task, the candidate can assume the player is any player from any team competing in the Premier League this season. They should make a single web page to visualise the data in any format they want, graphs, tables etc.
+Attached is a [JSON file](https://github.com/giamir/blob/master/public/data/player.json) of a player from this season's Premier League. Included are 4 matches (match weeks 3-6) with each match split up into 5 minute segments of stats that the player has recorded during the game.
 
-Upon completion, the finished page and any accompanying files should be sent zipped with any basic instructions which might be needed for opening and viewing the page. A short write up of one or two paragraphs should be included explaining why they approached the task in the way they did, this can then be followed up on in an interview if the candidate is successful.
+Make a single web page to visualise the data in any format (graphs, tables etc.).
 
-Although not necessary, it would be advantageous if the candidate used Javascript instead of jQuery as much as possible as this is the language used to write our Touchscreen solutions for projects such as Sky's MNF.
+## How I approached this task
+
+Not available yet
 
 ## Installation Instructions
 
-Not available yet.
+You will require NodeJS (with npm) to make the application function. To run the test suites you will also require Java.
+
+Clone from github and move into directory
+
+```
+$ git@github.com:giamir/player_stats.git
+$ cd player_stats
+```
+
+Install all dependencies for the application and start the server
+
+```
+$ npm install
+$ npm start
+```
+
+You can now visit the application in the browser at `http://localhost:8080/`
 
 ## Technologies
 
 * HTML5
-* CSS3
-* Bootstrap
+* Bootstrap 3
 * JavaScript
+* Chart.js
 * AngularJS
 * Karma (unit testing framework)
 * Protractor (feature testing framework)
+
+## Running Tests
+
+To run the test suite you will need to have the node server running.
+
+```
+$ npm start
+```
+
+To run the full suite
+
+```
+$ npm test
+```
+
+Or to run individual components
+
+```
+$ npm run karma
+$ npm run protractor
+```
 
 ## Contributors
 
