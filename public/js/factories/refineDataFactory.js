@@ -2,8 +2,8 @@ playerStats.factory('RefineData',['ElaborateData', function(ElaborateData) {
   var refineData = {};
 
   refineData.globalStats = function(matchesStatsObj) {
-    var seasonStatsObj = ElaborateData.seasonStatsObj(matchesStatsObj);
-    var lastMatchGlobalStatsObj = ElaborateData.lastMatchGlobalStatsObj(matchesStatsObj);
+    var seasonStatsObj = ElaborateData.getSeasonStatsObj(matchesStatsObj);
+    var lastMatchGlobalStatsObj = ElaborateData.getLastMatchGlobalStatsObj(matchesStatsObj);
     var globalStats = [];
     angular.forEach(seasonStatsObj, function(value, feature) {
       var statistic = {};
@@ -17,7 +17,7 @@ playerStats.factory('RefineData',['ElaborateData', function(ElaborateData) {
   };
 
   refineData.singleMatchStats = function(matchStatsObj) {
-    var matchGlobalStatsObj = ElaborateData.matchGlobalStatsObj(matchStatsObj);
+    var matchGlobalStatsObj = ElaborateData.getMatchGlobalStatsObj(matchStatsObj);
     var singleMatchStats = [];
     angular.forEach(matchGlobalStatsObj, function(value, feature) {
       var statistic = {};
