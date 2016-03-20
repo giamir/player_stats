@@ -219,3 +219,5 @@ var globalStatsArray = [
 ]
 
 var graphLabelsArray = [0, 5]
+
+var playerData = { data: matchesObj }
