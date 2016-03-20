@@ -57,11 +57,11 @@ To run the full suite
 $ npm test
 ```
 
-Or to run individual components
+Or to run individual components (unit and feature test)
 
 ```
-$ npm run karma
-$ npm run protractor
+$ grunt karma
+$ grunt e2e
 ```
 
 ## Contributors
