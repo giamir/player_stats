@@ -1,9 +1,8 @@
 # Player Statistics [![Build Status](https://travis-ci.org/giamir/player_stats.svg?branch=master)](https://travis-ci.org/giamir/player_stats) [![Coverage Status](https://coveralls.io/repos/github/giamir/player_stats/badge.svg?branch=master)](https://coveralls.io/github/giamir/player_stats?branch=master)
 
-
 ## Task
 
-Attached is a [JSON file](https://github.com/giamir/plater_stats/blob/master/public/data/player.json) of a player from this season's Premier League. Included are 4 matches (match weeks 3-6) with each match split up into 5 minute segments of stats that the player has recorded during the game.
+Attached is a [JSON file](https://github.com/giamir/player_stats/blob/master/public/data/player.json) of a player from this season's Premier League. Included are 4 matches (match weeks 3-6) with each match split up into 5 minute segments of stats that the player has recorded during the game.
 
 Make a single web page to visualise the data in any format (graphs, tables etc.).
 
