@@ -3,7 +3,7 @@
 
 ## Task
 
-Attached is a [JSON file](https://github.com/giamir/blob/master/public/data/player.json) of a player from this season's Premier League. Included are 4 matches (match weeks 3-6) with each match split up into 5 minute segments of stats that the player has recorded during the game.
+Attached is a [JSON file](https://github.com/giamir/plater_stats/blob/master/public/data/player.json) of a player from this season's Premier League. Included are 4 matches (match weeks 3-6) with each match split up into 5 minute segments of stats that the player has recorded during the game.
 
 Make a single web page to visualise the data in any format (graphs, tables etc.).
 
@@ -13,7 +13,10 @@ Not available yet
 
 ## Installation Instructions
 
-You will require NodeJS (with npm) to make the application function. To run the test suites you will also require Java.
+The app has been deployed on heroku and you can try it here:
+>[http://player-stats.herokuapp.com](http://player-stats.herokuapp.com)
+
+You will require NodeJS (with npm) to make the application function locally. To run the test suites you will also require Java.
 
 Clone from github and move into directory
 

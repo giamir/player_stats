@@ -6,6 +6,7 @@ module.exports = function(config) {
       'public/libs/Chart.js/Chart.min.js',
       'public/libs/angular/angular.min.js',
       'public/libs/angular-chart.js/dist/angular-chart.js',
+      'public/libs/angular-route/angular-route.js',
       'public/libs/angular-mocks/angular-mocks.js',
       'public/js/**/*.js',
       'test/unit/mocks/**/*.js',
@@ -24,7 +25,7 @@ module.exports = function(config) {
     browsers: ['PhantomJS'],
     singleRun: true,
     coverageReporter: {
-        type: 'html',
+        type: 'lcov',
         dir: 'coverage/'
     }
   });

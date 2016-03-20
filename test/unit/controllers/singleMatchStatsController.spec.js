@@ -44,7 +44,7 @@ describe('controller: SingleMatchStats', function() {
   });
 
   it('calls updateGlobalData', function() {
-    spyOn(ctrl, 'updateGlobalData')
+    spyOn(ctrl, 'updateGlobalData').and.callThrough();
     scope.$digest();
     expect(ctrl.updateGlobalData).toHaveBeenCalledWith(ctrl.currentMatchWeekKey);
   });
@@ -52,7 +52,7 @@ describe('controller: SingleMatchStats', function() {
   describe('#updateGlobalData', function() {
     beforeEach(function() {
       scope.$digest();
-      spyOn(ctrl, 'updateGraphData')
+      spyOn(ctrl, 'updateGraphData').and.callThrough();
       ctrl.updateGlobalData('mw1');
       scope.$digest();
     });
