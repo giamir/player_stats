@@ -8,6 +8,7 @@ module.exports = function(config) {
       'public/libs/angular-chart.js/dist/angular-chart.js',
       'public/libs/angular-mocks/angular-mocks.js',
       'public/js/**/*.js',
+      'test/unit/mocks/**/*.js',
       'test/**/*.spec.js'
     ],
     exclude: [],

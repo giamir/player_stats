@@ -6,7 +6,7 @@ function(Resource, RefineData) {
   self.init = function() {
     Resource.getPlayerData()
     .then(function(response) {
-      self.globalStats = RefineData.globalStats(response.data);
+      self.globalStats = RefineData.getGlobalStats(response.data);
     });
    };
 

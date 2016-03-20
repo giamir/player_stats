@@ -1,39 +1,47 @@
 playerStats.factory('RefineData',['ElaborateData', function(ElaborateData) {
   var refineData = {};
 
-  refineData.globalStats = function(matchesStatsObj) {
+  refineData.getGlobalStats = function(matchesStatsObj) {
     var seasonStatsObj = ElaborateData.getSeasonStatsObj(matchesStatsObj);
     var lastMatchGlobalStatsObj = ElaborateData.getLastMatchGlobalStatsObj(matchesStatsObj);
     var globalStats = [];
     angular.forEach(seasonStatsObj, function(value, feature) {
       var statistic = {};
       statistic.alias = feature;
-      statistic.featureName = refineData._featureAliasToFeatureName(feature);
-      statistic.global = refineData._addUnitToValue(value, feature);
+      statistic.featureName = refineData._convertAliasToFeatureName(feature);
+      statistic.season = refineData._addUnitToValue(value, feature);
       statistic.lastMatch = refineData._addUnitToValue(lastMatchGlobalStatsObj[feature], feature);
       globalStats.push(statistic);
     })
     return globalStats;
   };
 
-  refineData.singleMatchStats = function(matchStatsObj) {
+  refineData.getSingleMatchStats = function(matchStatsObj) {
     var matchGlobalStatsObj = ElaborateData.getMatchGlobalStatsObj(matchStatsObj);
     var singleMatchStats = [];
     angular.forEach(matchGlobalStatsObj, function(value, feature) {
       var statistic = {};
       statistic.alias = feature;
-      statistic.featureName = refineData._featureAliasToFeatureName(feature);
+      statistic.featureName = refineData._convertAliasToFeatureName(feature);
       statistic.value = refineData._addUnitToValue(value, feature);
       singleMatchStats.push(statistic);
     })
     return singleMatchStats;
   };
 
-  refineData.graphStats = function(matchStatsObj, stat) {
+  refineData.getGraphData = function(matchStatsObj, stat) {
     return ElaborateData.reduceObjToArray(matchStatsObj)[stat];
   };
 
-  refineData._featureAliasToFeatureName = function(feature) {
+  refineData.getGraphLabels = function(matchStatsObj, stat) {
+    var graphLabels = [];
+    for(var i = 0; i < refineData.getGraphData(matchStatsObj, stat).length; i++) {
+      graphLabels.push(i * 5);
+    }
+    return graphLabels;
+  };
+
+  refineData._convertAliasToFeatureName = function(feature) {
     var str = feature.split('_').join(' ');
     return str.charAt(0).toUpperCase() + str.slice(1);
   };

@@ -19,7 +19,7 @@ function(Resource, RefineData) {
     .then(function(response) {
       self.playerData = response.data
       self.currentMatchWeekKey = matchWeekKey;
-      self.singleMatchStats = RefineData.singleMatchStats(
+      self.singleMatchStats = RefineData.getSingleMatchStats(
         self.playerData[matchWeekKey]);
       self.updateGraphData(self.currentStat);
     });
@@ -27,11 +27,10 @@ function(Resource, RefineData) {
 
   self.updateGraphData = function(stat) {
     self.currentStat = stat;
-    var graphArray = RefineData.graphStats(
+    self.graphData = [RefineData.getGraphData(
+      self.playerData[self.currentMatchWeekKey], stat)];
+    self.graphLabels = RefineData.getGraphLabels(
       self.playerData[self.currentMatchWeekKey], stat);
-    self.graphData = [graphArray];
-    self.graphLabels = [];
-    for(var i = 0; i < graphArray.length; i++) { self.graphLabels.push(i * 5); }
   };
 
   self.init();
