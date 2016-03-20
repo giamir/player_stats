@@ -24,8 +24,8 @@
   </canvas>
   <p class="text-uppercase"><small>minutes</small></p>
   <nav class="pagination">
-    <li ng-repeat="stat in ctrl.singleMatchStats" ng-class="{active: ctrl.currentStat==stat.alias}">
-      <a ng-click="ctrl.updateGraphData(stat.alias)">{{stat.featureName}}</a>
+    <li ng-repeat="navStat in ctrl.singleMatchStats" ng-class="{active: ctrl.currentStat==navStat.alias}">
+      <a ng-click="ctrl.updateGraphData(navStat.alias)">{{navStat.featureName}}</a>
     </li>
   </nav>
 </figure>

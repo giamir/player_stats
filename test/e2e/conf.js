@@ -9,10 +9,6 @@ exports.config = {
   },
 
   onPrepare: function() {
-    require('protractor-http-mock').config = {
-      rootDirectory: __dirname,
-      protractorConfig: 'conf.js'
-    };
     var SpecReporter = require('jasmine-spec-reporter');
     jasmine.getEnv().addReporter(new SpecReporter({displayStacktrace: 'all'}));
   }
