@@ -71,8 +71,8 @@ var matchGlobalObj2 = {
 }
 
 var matchesObj = {
-  mw1: matchObj,
-  mw2: matchObj2
+  mw2: matchObj2,
+  mw1: matchObj
 }
 
 var matchesGlobalObj = {

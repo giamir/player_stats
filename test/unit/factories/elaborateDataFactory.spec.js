@@ -27,7 +27,7 @@ describe('factory: ElaborateData', function() {
 
   describe('#getLastMatchGlobalStatsObj', function() {
     it('returns an hash with keys stats name and values global stats of the last match', function() {
-      expect(elaborateData.getLastMatchGlobalStatsObj(matchesObj)).toEqual(matchGlobalObj);
+      expect(elaborateData.getLastMatchGlobalStatsObj(matchesObj)).toEqual(matchGlobalObj2);
     });
   });
 
