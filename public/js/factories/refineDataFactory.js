@@ -8,11 +8,11 @@ playerStats.factory('RefineData',['ElaborateData', function(ElaborateData) {
     angular.forEach(seasonStatsObj, function(value, feature) {
       var statistic = {};
       statistic.alias = feature;
-      statistic.featureName = refineData._convertAliasToFeatureName(feature);
-      statistic.season = refineData._addUnitToValue(value, feature);
-      statistic.lastMatch = refineData._addUnitToValue(lastMatchGlobalStatsObj[feature], feature);
+      statistic.featureName = convertAliasToFeatureName(feature);
+      statistic.season = addUnitToValue(value, feature);
+      statistic.lastMatch = addUnitToValue(lastMatchGlobalStatsObj[feature], feature);
       globalStats.push(statistic);
-    })
+    });
     return globalStats;
   };
 
@@ -22,10 +22,10 @@ playerStats.factory('RefineData',['ElaborateData', function(ElaborateData) {
     angular.forEach(matchGlobalStatsObj, function(value, feature) {
       var statistic = {};
       statistic.alias = feature;
-      statistic.featureName = refineData._convertAliasToFeatureName(feature);
-      statistic.value = refineData._addUnitToValue(value, feature);
+      statistic.featureName = convertAliasToFeatureName(feature);
+      statistic.value = addUnitToValue(value, feature);
       singleMatchStats.push(statistic);
-    })
+    });
     return singleMatchStats;
   };
 
@@ -41,16 +41,16 @@ playerStats.factory('RefineData',['ElaborateData', function(ElaborateData) {
     return graphLabels;
   };
 
-  refineData._convertAliasToFeatureName = function(feature) {
+  function convertAliasToFeatureName(feature) {
     var str = feature.split('_').join(' ');
     return str.charAt(0).toUpperCase() + str.slice(1);
-  };
+  }
 
-  refineData._addUnitToValue = function(value, feature) {
-    if(feature.indexOf('distance') > -1) { return value.toFixed(0) + ' m' }
-    if(feature.indexOf('_speed') > -1) { return value.toFixed(2) + ' km/h' }
+  function addUnitToValue(value, feature) {
+    if(feature.indexOf('distance') > -1) { return value.toFixed(0) + ' m'; }
+    if(feature.indexOf('_speed') > -1) { return value.toFixed(2) + ' km/h'; }
     return value.toFixed(0);
-  };
+  }
 
   return refineData;
 }]);

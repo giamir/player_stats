@@ -5,7 +5,7 @@ playerStats.factory('ElaborateData',[function() {
     var matchesGlobalStatsObj = elaborateData.getMatchesGlobalStatsObj(matchesStatsObj);
     var seasonStatsObj = elaborateData.reduceObjToArray(matchesGlobalStatsObj);
     angular.forEach(seasonStatsObj, function(array, stat) {
-      seasonStatsObj[stat] = elaborateData._calculateAVG(array);
+      seasonStatsObj[stat] = calculateAVG(array);
     });
     return seasonStatsObj;
   };
@@ -28,15 +28,15 @@ playerStats.factory('ElaborateData',[function() {
     angular.forEach(matchGlobalStatsObj, function(array, stat) {
       switch(stat) {
         case 'avg_speed':
-          matchGlobalStatsObj[stat] = elaborateData._calculateAVG(array);
+          matchGlobalStatsObj[stat] = calculateAVG(array);
           break;
         case 'max_speed':
-          matchGlobalStatsObj[stat] = elaborateData._findMAX(array);
+          matchGlobalStatsObj[stat] = findMAX(array);
           break;
         default:
-          matchGlobalStatsObj[stat] = elaborateData._calculateSUM(array);
+          matchGlobalStatsObj[stat] = calculateSUM(array);
       }
-    })
+    });
     return matchGlobalStatsObj;
   };
 
@@ -51,18 +51,18 @@ playerStats.factory('ElaborateData',[function() {
     return matchStatsObjArray;
   };
 
-  elaborateData._calculateAVG = function(array) {
-    var sum = elaborateData._calculateSUM(array);
+  function calculateAVG(array) {
+    var sum = calculateSUM(array);
     return (sum / array.length);
-  };
+  }
 
-  elaborateData._calculateSUM = function(array) {
+  function calculateSUM(array) {
     return array.reduce(function(a, b) { return a + b; });
-  };
+  }
 
-  elaborateData._findMAX = function(array) {
+  function findMAX(array) {
     return Math.max.apply(Math, array);
-  };
+  }
 
   return elaborateData;
 }]);
