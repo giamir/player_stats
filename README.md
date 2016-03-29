@@ -31,6 +31,8 @@ public
 │   ├── controllers
 │   │   ├── globalStatsController.js
 │   │   └── singleMatchStatsController.js
+│   ├── directives
+│   │   └── globalStatsDirective.js
 │   └── factories
 │       ├── elaborateDataFactory.js
 │       ├── refineDataFactory.js
@@ -50,9 +52,12 @@ public
 * RefineData *is responsible for transforming JSON objects in an "easy to handle" format for the controllers.*
 
 **Controllers**
-* GlobalStats *is responsible for displaying global statistics using the view global-stats.html.*
+* GlobalStats *is responsible for displaying global statistics using the directive global-stats.*
 * SingleMatchStats *is responsible for dynamically focusing the preferred match and
 displaying its statistics using the view match-stats.html.*
+
+**Directives**
+* globalStats *is responsible for attach the appropriate html to display global statistics to the DOM.*
 
 If you want to have a deep understanding of the business logic implemented, please
 follow [this link](https://github.com/giamir/player_stats/tree/master/test/unit) where all tests cases are located.

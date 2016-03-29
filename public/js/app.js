@@ -8,5 +8,6 @@
     });
   }
 
-  angular.module('PlayerStats', ['chart.js']);
+  angular.module('PlayerStats', ['chart.js'])
+    .config(config);
 })();
