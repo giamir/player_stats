@@ -6,7 +6,7 @@ var homepage = {
   },
 
   getNameFirstGlobalStat: function() {
-    return element.all(by.repeater('stat in ctrl.globalStats'))
+    return element.all(by.repeater('stat in vm.globalStats'))
     .then(function(elems) {
       return elems[0].element(by.binding('stat.featureName')).getText();
      });
@@ -15,14 +15,14 @@ var homepage = {
   clickLastSingleMatchLink: function() {
     return element.all(by.repeater('mw in ctrl.matchWeekKeys'))
     .then(function(elems) {
-     return elems[elems.length-1].element(by.binding('mw')).click();
+      return elems[elems.length-1].element(by.binding('mw')).click();
     });
   },
 
   getLastSingleMatchAlias: function() {
     return element.all(by.repeater('mw in ctrl.matchWeekKeys'))
     .then(function(elems) {
-     return elems[elems.length-1].element(by.binding('mw')).getText();
+      return elems[elems.length-1].element(by.binding('mw')).getText();
     });
   },
 
@@ -33,14 +33,14 @@ var homepage = {
   clickLastStatisticLink: function() {
     return element.all(by.repeater('navStat in ctrl.singleMatchStats'))
     .then(function(elems) {
-     return elems[elems.length-1].element(by.binding('navStat.featureName')).click();
+      return elems[elems.length-1].element(by.binding('navStat.featureName')).click();
     });
   },
 
   getLastStatisticAlias: function() {
     return element.all(by.repeater('navStat in ctrl.singleMatchStats'))
     .then(function(elems) {
-     return elems[elems.length-1].element(by.binding('navStat.featureName')).getText();
+      return elems[elems.length-1].element(by.binding('navStat.featureName')).getText();
     });
   },
 

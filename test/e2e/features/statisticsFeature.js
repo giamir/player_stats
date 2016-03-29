@@ -13,13 +13,13 @@ describe('Displaying Player Statistics', function() {
     it('change the match stats displayed clicking the button of the match wanted', function() {
       homepage.clickLastSingleMatchLink();
       expect(homepage.getSingleMatchDisplayedAlias())
-      .toEqual(homepage.getLastSingleMatchAlias());
+        .toEqual(homepage.getLastSingleMatchAlias());
     });
 
     it('change the statistic displayed in the graph clicking the button of the statistic wanted', function() {
       homepage.clickLastStatisticLink();
       expect(homepage.getStatisticDisplayedAlias())
-      .toContain(homepage.getLastStatisticAlias());
+        .toContain(homepage.getLastStatisticAlias());
     });
   });
 });

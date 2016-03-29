@@ -4,21 +4,4 @@
   <h4>Football Team</h4>
 </header>
 
-<section class="col-md-8 col-lg-8 col-xl-8" ng-controller="GlobalStats as ctrl">
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Statistic</th>
-        <th>Season <small>(AVG)</small></th>
-        <th>Last Match</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="stat in ctrl.globalStats">
-        <td>{{stat.featureName}}</td>
-        <td>{{stat.season}}</td>
-        <td>{{stat.lastMatch}}</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
+<global-stats></global-stats>
